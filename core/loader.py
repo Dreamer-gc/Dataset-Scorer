@@ -1,81 +1,25 @@
-# 1️⃣ File Validation
+import pandas as pd
+import os
+supported_ext=[".csv",".xlsx"]
+def loader(path):
+    try:
+        ext=os.path.splitext(path)[1].lower()
+        if ext in supported_ext:
+            if ext==".csv":
+                df=pd.read_csv(path)
 
-# Before loading:
+            else:
+                df=pd.read_excel(path)
+                
+            return df
+        else:
+            print("Unsupported file type.")
+        
+    except pd.errors.ParserError:
+        print("Parsing error.")
 
-# Does file exist?
+    except pd.errors.EmptyDataError:
+        print("Empty file.")
 
-# Is it readable?
-
-# Is extension supported?
-
-# Is file empty?
-
-# If any fails → raise clear error.
-
-# Loader should fail fast.
-
-# 2️⃣ Supported File Formats
-
-# For Version 1, support:
-
-# .csv
-
-# .xlsx (optional)
-
-# Check file extension.
-
-# Do NOT try to detect format magically.
-
-# Be explicit.
-
-# 3️⃣ Safe Reading
-
-# Loader should:
-
-# Read file into DataFrame
-
-# Catch parsing errors
-
-# Handle encoding issues safely
-
-# Return dataframe
-
-# No transformations.
-
-# No cleaning.
-
-# 4️⃣ Basic Structural Checks
-
-# After loading:
-
-# Check:
-
-# Rows > 0
-
-# Columns > 0
-
-# No completely duplicate column names
-
-# Column names are valid strings
-
-# These are structural checks, not quality checks.
-
-# 5️⃣ Metadata Output
-
-# Loader should return:
-
-# DataFrame
-
-# Basic metadata (optional)
-
-# Example conceptual output:
-
-# {
-#     "dataframe": df,
-#     "row_count": n_rows,
-#     "column_count": n_columns,
-#     "column_names": [...]
-# }
-
-# Even if you only return df,
-# at least compute row/column count inside loader
+    except FileNotFoundError:
+        print("File not found at that location.")
