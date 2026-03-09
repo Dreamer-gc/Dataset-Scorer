@@ -1,7 +1,7 @@
 from core.loader import loader
 from core.profiler import profiler
 from modules.completeness import completeness
-#from modules.duplicates import duplicates
+from modules.duplicates import duplicates
 # from modules.outliers import outliers
 # from modules.structural import struct
 # from modules.validity import validity
@@ -18,4 +18,4 @@ if df is None:
 print("Dataset loaded successfully")
 profile=profiler(df)
 completeness_score=completeness(profile)
-print(completeness_score)
+duplicates_score=duplicates(profile)

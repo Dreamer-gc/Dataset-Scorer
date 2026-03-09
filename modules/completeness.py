@@ -1,5 +1,5 @@
-import pandas as pd
-from rules.rules import severity_to_score
+
+from rules.rules import *
 def completeness(profile):
     missing_percentage=(profile["n_missing"]/profile["n_rows"])*100
     missing_percentage_overall=(profile["n_missing"].sum()/(profile["n_rows"]*profile["n_cols"]))*100
@@ -10,7 +10,7 @@ def completeness(profile):
     critical_missing_columns=missing_percentage[missing_percentage>50].index.tolist()
     
     spread = ((len(heavily_missing_columns) + len(critical_missing_columns)) / profile["n_cols"]) * 100
-    severity_list=["Healthy","Low","Moderate","High","Critical"]
+    
     if critical_missing_columns:
         severity=severity_list[4]
     elif heavily_missing_columns:
