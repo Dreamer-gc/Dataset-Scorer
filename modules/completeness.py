@@ -21,12 +21,6 @@ def completeness(profile):
         severity=severity_list[1]
     else:
         severity=severity_list[0]
-    
-    def escalate(severity):
-        idx = severity_list.index(severity)
-        if idx < len(severity_list) - 1:
-            return severity_list[idx + 1]
-        return severity
 
     if spread>=30:
         severity=escalate(severity)

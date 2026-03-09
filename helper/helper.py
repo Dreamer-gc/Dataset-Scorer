@@ -25,3 +25,9 @@ def detect_date(df, object_cols):
         if success_ratio>0.9:
             datetime_cols.append(col)
     return datetime_cols
+
+def escalate(severity):
+        idx = severity_list.index(severity)
+        if idx < len(severity_list) - 1:
+            return severity_list[idx + 1]
+        return severity
