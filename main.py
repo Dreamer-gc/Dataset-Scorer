@@ -3,10 +3,8 @@ from core.profiler import profiler
 from modules.completeness import completeness
 from modules.duplicates import duplicates
 from modules.outliers import outlier
-# from modules.structural import struct
 from modules.validity import validity
-import reporting 
-import scoring
+
 
 path=input("Enter your path for dataset here:")
 
