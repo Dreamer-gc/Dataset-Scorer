@@ -4,7 +4,7 @@ from modules.completeness import completeness
 from modules.duplicates import duplicates
 # from modules.outliers import outliers
 # from modules.structural import struct
-# from modules.validity import validity
+from modules.validity import validity
 import reporting 
 import scoring
 
@@ -19,3 +19,4 @@ print("Dataset loaded successfully")
 profile=profiler(df)
 completeness_score=completeness(profile)
 duplicates_score=duplicates(profile)
+validity_score=validity(df,profile)

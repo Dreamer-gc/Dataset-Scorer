@@ -1,5 +1,5 @@
 
-from rules.rules import *
+from helper.helper import *
 def completeness(profile):
     missing_percentage=(profile["n_missing"]/profile["n_rows"])*100
     missing_percentage_overall=(profile["n_missing"].sum()/(profile["n_rows"]*profile["n_cols"]))*100
