@@ -52,7 +52,7 @@ def validity(df,profile):
     else:
         severity=severity_list[4]
 
-    score=severity_to_score[severity]
+    score=severity_to_score(severity)
 
     return {
         "dimension": "validity",
