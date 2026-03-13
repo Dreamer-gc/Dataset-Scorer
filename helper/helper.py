@@ -1,6 +1,12 @@
 import pandas as pd
+
 severity_list=["Healthy","Low","Moderate","High","Critical"]
+
 severity_score={"Healthy":95,"Low":80,"Moderate":65,"High":50,"Critical":30}
+
+weight={"Completeness":0.30,"Duplicate":0.15,"Validity":0.25,"Outlier":0.20}
+
+
 def severity_to_score(sev):
     return severity_score[sev]
 
@@ -15,6 +21,7 @@ def detect_bool(df, object_cols):
             bool_cols.append(col)
     
     return bool_cols
+
 def detect_date(df, object_cols):
     datetime_cols=[]
     for col in object_cols:
