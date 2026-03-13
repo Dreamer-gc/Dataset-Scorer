@@ -5,7 +5,7 @@ from modules.duplicates import duplicates
 from modules.outliers import outlier
 from modules.validity import validity
 from scoring.scoring import score
-
+from reporting.report import report
 path=input("Enter your path for dataset here:")
 
 df=loader(path)
@@ -21,3 +21,5 @@ validity_score=validity(df,profile)
 outlier_score=outlier(df,profile)
 
 final_score=score(completeness_score,duplicates_score,validity_score,outlier_score)
+
+report(final_score,profile,completeness_score,duplicates_score,validity_score,outlier_score)
