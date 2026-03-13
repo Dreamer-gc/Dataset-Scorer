@@ -6,7 +6,7 @@ def duplicates(profile):
         duplicate_percentage=0
     else:
         duplicate_percentage=(profile["n_duplicate"].iloc[0]/profile["n_rows"])*100
-    print(profile["n_duplicate"].iloc[2])
+    
     if(duplicate_percentage==0):
         severity=severity_list[0]
     elif(duplicate_percentage>0 and duplicate_percentage<=2):
