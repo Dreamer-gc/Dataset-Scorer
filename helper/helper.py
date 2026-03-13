@@ -26,7 +26,7 @@ def detect_date(df, object_cols):
     datetime_cols=[]
 
     for col in object_cols:
-        converted = pd.to_datetime(df[col], errors="coerce")
+        converted = pd.to_datetime(df[col], errors="coerce",format="mixed")
 
         success_ratio = converted.notna().sum() / df[col].notna().sum()
 
