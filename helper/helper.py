@@ -24,13 +24,15 @@ def detect_bool(df, object_cols):
 
 def detect_date(df, object_cols):
     datetime_cols=[]
+
     for col in object_cols:
-        converted=pd.to_datetime(df[col],errors="coerce")
+        converted = pd.to_datetime(df[col], errors="coerce", infer_datetime_format=True)
 
-        success_ratio=converted.notna().sum()/len(df[col])
+        success_ratio = converted.notna().sum() / df[col].notna().sum()
 
-        if success_ratio>0.9:
+        if success_ratio > 0.9:
             datetime_cols.append(col)
+
     return datetime_cols
 
 def escalate(severity):
